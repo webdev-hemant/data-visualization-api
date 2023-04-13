@@ -2,11 +2,10 @@ const mongoose = require("mongoose");
 require("dotenv").config({});
 
 const connectDb = () => {
+  console.log(process.env.MONGODB_CONNECTION, process.env.DB_NAME);
   mongoose
     .connect(process.env.MONGODB_CONNECTION, {
       dbName: process.env.DB_NAME,
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
     })
     .then(() => {
       console.log(`mongodb conected`);
@@ -26,4 +25,4 @@ const connectDb = () => {
   //   });
 };
 
-module.exports = connectDb;
+module.exports = { connectDb };

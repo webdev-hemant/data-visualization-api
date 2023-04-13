@@ -1,14 +1,22 @@
 const express = require("express");
+const mongoose = require("mongoose");
 // const contactRouter = require("./routes/contactRoutes");
 // const practiceRouter = require("./routes/practiceRoutes");
-// const connectDb = require("./config/dbConnection");
+// const { connectDb } = require("./config/dbConnection");
 // const errorHandler = require("./middlerwares/errorHandle");
 require("dotenv").config({});
 const app = express();
 const port = process.env.PORT;
 
 // db connection
-// connectDb();
+mongoose
+  .connect(process.env.MONGODB_CONNECTION, {
+    dbName: process.env.DB_NAME,
+  })
+  .then(() => {
+    console.log(`mongodb conected`);
+  })
+  .catch((err) => console.log({ err }));
 
 // middlewares
 app.use(express.json());
