@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT;
 
 // db connection
-connectDb();
+// connectDb();
 
 // middlewares
 app.use(express.json());
