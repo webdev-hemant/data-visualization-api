@@ -2,7 +2,7 @@ const express = require("express");
 // const contactRouter = require("./routes/contactRoutes");
 // const practiceRouter = require("./routes/practiceRoutes");
 const connectDb = require("./config/dbConnection");
-const errorHandler = require("./middlerwares/errorHandle");
+// const errorHandler = require("./middlerwares/errorHandle");
 require("dotenv").config({});
 const app = express();
 const port = process.env.PORT;
@@ -21,6 +21,6 @@ app.get("/", (req, res) => {
   res.json({ message: "hellow world" });
 });
 
-app.use(errorHandler);
+// app.use(errorHandler);
 
 app.listen(port, () => console.log(`server started on port ${port}`));
